@@ -1,0 +1,42 @@
+extends base
+
+block content
+  .post-overview
+    .post-container
+      - const postedAt = `${post.postedAt}`.split(' ').splice(1,4).join(' ')
+      .post__details.pd-tp-sm=`${post.postedBy} | ${postedAt}.`
+      h2.heading-secondary=post.title
+      p.post__description=post.description
+
+    .comment
+      h3.comment__title.heading-tertiary.mg-bt-sm Comments
+      form.form--comment-direct.mg-bt-sm
+        textarea.form__text(placeholder='Write your thoughts...' required='' name='comment' id='comment-direct' rows='5' style='resize: none; width: 100%; ')
+        button.btn.btn--grey.btn--reply(type='submit') Add comment
+        
+        
+      .comment__info
+        each comment, i in post.comments
+          .comment__wrapper(class=`comment__wrapper-direct-${comment._id}`)
+            img.comment__user-img(src=`/img/${comment.postedBy}.png` alt=`${comment.postedBy}`)
+            .comment__user-name=comment.postedBy
+            .comment__text=comment.text
+
+          .comment__cta.mg-bt-sm
+            .btn-reply(id=`reply-checkbox--${i}` role='checkbox' onclick='changeCheckbox()' aria-checked='false') Reply
+            .btn-like(aria-pressed='false' role='button')= `Like ${comment.likes}`
+            .btn-dislike(aria-pressed='false' role='button')= `Like ${comment.dislikes}`
+            
+            form.form--comment-sub
+              textarea.form__text(class=`form__text-${comment._id}` placeholder='Write your thoughts...' required='' name='comment' id='' rows='5' style='resize: none; width: 100%; ')
+              button.btn.btn--grey.btn--reply(class=`btn-${comment._id}` type='submit') Add comment
+
+          each subcomment in comment.subComment
+            .sub-comment
+              .comment__wrapper(class=`comment__wrapper-sub-${subcomment.id}`)
+                img.comment__user-img(src='/img/default.png' alt='User 1')
+                .comment__user-name=subcomment.postedBy
+                .comment__text=subcomment.text
+              .comment__cta.mg-bt-sm
+                .btn-like(aria-pressed='false' role='button')= `Like ${subcomment.likes}`
+                .btn-dislike(aria-pressed='false' role='button')= `Dislike ${subcomment.dislikes}`
