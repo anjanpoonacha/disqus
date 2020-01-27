@@ -40,7 +40,7 @@ block content
           each subcomment in comment.subComment
             .sub-comment
               .comment__wrapper(class=`comment__wrapper-sub-${subcomment.id}`)
-                img.comment__user-img(src='/img/default.png' alt='User 1')
+                img.comment__user-img(src=`/img/${subcomment.postedBy}.png` alt='User 1')
                 .comment__user-name=subcomment.postedBy
                 .comment__text
                   p=subcomment.text

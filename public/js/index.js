@@ -33,10 +33,12 @@ document.addEventListener('submit', e => {
     const commentId = e.target.id.split('--')[1];
     try {
       text = document.querySelector(`.form__text-${commentId}`).value;
+      addComment(document, text, 'subcomment', commentId);
     } catch (err) {
-      showAlert('error', 'Please reload the page before commenting');
+      if (!loginForm) {
+        showAlert('error', 'Please reload the page before commenting');
+      }
     }
-    addComment(document, text, 'subcomment', commentId);
   }
 });
 
