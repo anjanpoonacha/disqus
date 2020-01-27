@@ -1,0 +1,15 @@
+@mixin btn-hover {
+  &:hover{
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(#000, .4);
+    
+  }
+  &:active {
+    background-color: #333;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 10px rgba(#000, .4);
+    
+  }
+}
+

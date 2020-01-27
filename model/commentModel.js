@@ -40,7 +40,7 @@ commentSchema.virtual('subComment', {
 });
 
 commentSchema.pre(/^find/, function(next) {
-  this.populate('subComment');
+  this.populate('subComment').sort({ createdAt: -1 });
   next();
 });
 

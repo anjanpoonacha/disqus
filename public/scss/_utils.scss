@@ -1,0 +1,59 @@
+
+
+
+.heading-primary {
+  font-size: 5rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 auto;
+  // color: #24a0ed;
+}
+
+.heading-secondary {
+  font-size: 2.5rem;
+  font-weight: 600;
+  
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  font-weight: 400;
+  // color: #24a0ed;
+  // text-transform: uppercase;
+}
+
+.btn {
+  border: none;
+  color: white;
+  font-family: inherit;
+  padding: 1rem 1.5rem;
+  border-radius: 10rem;
+  outline: none;
+  transition: all .2s;
+  margin-top: 1rem;
+  cursor: pointer;
+
+
+  @include btn-hover();
+  
+
+  &--grey {
+    background-color: #444;
+  }
+  &--blue {
+    background-color: #24a0ed;
+  }
+
+}
+
+.mg-bt-sm { margin-bottom: 2rem !important; }
+.mg-bt-md { margin-bottom: 4rem !important; }
+.mg-bt-lg { margin-bottom: 6rem !important; }
+.mg-bt-hg { margin-bottom: 8rem !important; }
+
+.mg-tp-sm { margin-top: 2rem !important; }
+.mg-tp-md { margin-top: 4rem !important; }
+.mg-tp-lg { margin-top: 6rem !important; }
+.mg-tp-hg { margin-top: 8rem !important; }
+
+.pd-tp-sm { padding-top: 2rem !important; }

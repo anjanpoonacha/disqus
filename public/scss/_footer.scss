@@ -1,0 +1,9 @@
+.footer {
+  grid-column: full-start / full-end;
+  
+  display: flex;
+  justify-content: center;
+  background-color: #444;
+  color: #dfd5d5;
+  padding: 2rem 0;
+}

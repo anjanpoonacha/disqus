@@ -16,7 +16,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // SERVING STATIC FILES
-app.use(express.static(path.join(__dirname, 'public/dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // BODY PARSER
 app.use(express.json({ limit: '10kb' }));

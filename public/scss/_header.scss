@@ -1,0 +1,60 @@
+.header {
+  grid-column: full-start / full-end;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #444;
+  color: #dfd5d5;
+  padding: 0 1.5rem;
+
+
+    // position: fixed;
+  // top: 0;
+  // left: 0;
+
+  &__logo-link,
+  &__logo-link:link,
+  &__logo-link:visited {
+    text-decoration: none;  
+    border-bottom: .5rem solid transparent;
+  }
+  &__logo-link:hover,
+  &__logo-link:active {
+    color: #fff;
+
+  }
+}
+
+.nav {
+  &__el {
+    padding-bottom: .5rem;
+    transition: all .2s;
+    
+    &,
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: #dfd5d5;
+      
+    }
+    
+    &:hover,
+    &:active {
+      color: white;
+    }
+
+    &--signup:link,
+    &--login:link,
+    &--singup:visited, 
+    &--login:visited {
+      border-bottom: 1px solid transparent;
+    }
+
+    &--signup:hover,
+    &--signup:active, 
+    &--login:hover, 
+    &--login:active, {
+      border-bottom: 1px solid currentColor;
+    }
+  }
+}

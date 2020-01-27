@@ -20,15 +20,21 @@ block content
           .comment__wrapper(class=`comment__wrapper-direct-${comment._id}`)
             img.comment__user-img(src=`/img/${comment.postedBy}.png` alt=`${comment.postedBy}`)
             .comment__user-name=comment.postedBy
-            .comment__text=comment.text
+            .comment__text
+              p=comment.text
 
-          .comment__cta.mg-bt-sm
-            .btn-reply(id=`reply-checkbox--${i}` role='checkbox' onclick='changeCheckbox()' aria-checked='false') Reply
-            .btn-like(aria-pressed='false' role='button')= `Like ${comment.likes}`
-            .btn-dislike(aria-pressed='false' role='button')= `Like ${comment.dislikes}`
+          .comment__cta.mg-bt-sm(class=`comment__cta--direct-${comment._id}`)
+            .btn-reply(id=`reply-checkbox--${comment._id}` role='checkbox' onclick='changeCheckbox()' aria-checked='false') Reply
+            .btn-like(aria-pressed='false' aria-labelledby=`like-${comment._id}` onclick='changeButtons()' role='button' id=`comment-like-${comment._id}`)|Like 
+              |
+              span.like-count(class=`comment-like-count-${comment._id}`)=`${comment.likes}`
+
+            .btn-dislike(aria-pressed='false' onclick='changeButtons()' aria-labellby=`dislike-${comment._id}` role='button' id=`comment-dislike-${comment._id}`) Dislike
+              | 
+              span.dislike-count(class=`comment-dislike-count-${comment._id}`)= `${comment.dislikes}`
             
-            form.form--comment-sub
-              textarea.form__text(class=`form__text-${comment._id}` placeholder='Write your thoughts...' required='' name='comment' id='' rows='5' style='resize: none; width: 100%; ')
+            form.form--comment-sub(id=`form--${comment._id}`)
+              textarea.form__text(class=`form__text-${comment._id}` placeholder='Write your thoughts...' required='' name='comment' rows='5' style='resize: none; width: 100%; ')
               button.btn.btn--grey.btn--reply(class=`btn-${comment._id}` type='submit') Add comment
 
           each subcomment in comment.subComment
@@ -36,7 +42,12 @@ block content
               .comment__wrapper(class=`comment__wrapper-sub-${subcomment.id}`)
                 img.comment__user-img(src='/img/default.png' alt='User 1')
                 .comment__user-name=subcomment.postedBy
-                .comment__text=subcomment.text
-              .comment__cta.mg-bt-sm
-                .btn-like(aria-pressed='false' role='button')= `Like ${subcomment.likes}`
-                .btn-dislike(aria-pressed='false' role='button')= `Dislike ${subcomment.dislikes}`
+                .comment__text
+                  p=subcomment.text
+              .comment__cta.mg-bt-sm(class=`comment__cta--sub-${subcomment._id}`)
+                .btn-like(aria-pressed='false' aria-labellby=`like-${subcomment._id}` onclick='changeButtons()' role='button' id=`subcomment-like-${subcomment._id}`) Like
+                  | 
+                  span.like-count(class=`subcomment-like-count-${subcomment._id}`)= `${subcomment.likes}`
+                .btn-dislike(aria-pressed='false' aria-labellby=`dislike-${subcomment._id}` onclick='changeButtons()' role='button' id=`subcomment-dislike-${subcomment._id}`) Dislike
+                  | 
+                  span.dislike-count(class=`subcomment-dislike-count-${subcomment._id}`)= `${subcomment.dislikes}`

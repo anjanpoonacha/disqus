@@ -8,9 +8,9 @@
     "start:dev": "nodemon server.js",
     "start:prod": "set NODE_ENV=production&& nodemon server.js",
     "start:prodUbuntu": "NODE_ENV=production && nodemon server.js",
-    "watch:js": "parcel watch ./public/dist/js/index.js --out-dir ./public/dist/js --out-file bundle.js  --public-url /js/",
-    "build:js": "parcel build ./public/dist/js/index.js --out-dir ./public/dist/js --out-file bundle.js  --public-url /js/",
-    "compile:sass": "node-sass ./public/scss/main.scss ./public/dist/css/style.css -w"
+    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/dist/ --out-file bundle.js --public-url /dist/js/",
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/dist/js --out-file bundle.js  --public-url /js/",
+    "compile:sass": "node-sass ./public/scss/main.scss ./public/css/style.css -w"
   },
   "author": "Anjan Poonacha",
   "license": "ISC",

@@ -3,7 +3,7 @@ const AppError = require('../utils/appError');
 const User = require('./../model/userModel');
 
 const createToken = catchAsync(async (user, statusCode, res) => {
-  const token = `logged-in-${user._id}`;
+  const token = `logged-in-${user._id}-${Date.now()}`;
 
   console.log(token);
 
@@ -30,7 +30,7 @@ exports.login = catchAsync(async (req, res, next) => {
   const user = await User.findOne({ email });
 
   if (!user || password != user.password) {
-    return next(AppError('Incorrect email or password'));
+    return next(new AppError('Incorrect email or password', 401));
   }
 
   req.user = user;
@@ -57,23 +57,30 @@ exports.isLoggedIn = async (req, res, next) => {
   /* Only for rendered pages, no errors */
 
   // 1. Check if the cookie exists
-  if (req.cookies.mocked_jwt) {
-    try {
-      // 2. Verification token
-      const userId = req.cookies.mocked_jwt.split('-')[2];
-
-      // 3. Check if user still exists
-      const currentUser = await User.findById(userId);
-      if (!currentUser) {
-        return next();
-      }
-
-      // THERE IS A LOGGED USER
-      res.locals.user = currentUser;
-      return next(); /* This line is not required I think */
-    } catch (err) {
-      return next();
-    }
+  if (!req.cookies.mocked_jwt) {
+    return next(
+      new AppError('Please login to proceed with this action! ', 401)
+    );
   }
+  try {
+    // 2. Verification token
+    const userId = req.cookies.mocked_jwt.split('-')[2];
+
+    // 3. Check if user still exists
+    const currentUser = await User.findById(userId);
+    if (!currentUser) {
+      return next(
+        new AppError(`User with this id doesn't exist. Please login!`, 401)
+      );
+    }
+
+    // THERE IS A LOGGED USER
+    res.locals.user = currentUser;
+    req.user = currentUser;
+    return next();
+  } catch (err) {
+    return next();
+  }
+
   next();
 };
