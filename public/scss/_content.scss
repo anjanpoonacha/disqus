@@ -2,23 +2,12 @@
   background-color: #fafafa;
   grid-column: full-start / full-end;
   min-height: 90vh;
-  // if supports subgrid
-  @supports (grid-template-columns: subgrid) {
-    display: grid;
-    grid-template-columns: subgrid;
-    padding: 5rem 0;
-    grid-auto-rows: min-content;
-  }
   padding: 5rem;
 }
 
 
 
 .post {
-  // if supports subgrid
-  @supports(grid-template-columns: subgrid){
-    grid-column: center-start / center-end;
-  }
   background-color: #fdfdfd;
   padding: 1.5rem 3rem;
   box-shadow: 0 5px 10px rgba(#000, .4);

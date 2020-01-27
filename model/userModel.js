@@ -31,8 +31,7 @@ const userSchema = mongoose.Schema({
       },
       message: `Passwords are not the same`
     }
-  },
-  photo: { type: String, default: `default` }
+  }
 });
 
 // userSchema.methods.correctPassword = async function(
