@@ -5,8 +5,6 @@ const User = require('./../model/userModel');
 const createToken = catchAsync(async (user, statusCode, res) => {
   const token = `logged-in-${user._id}-${Date.now()}`;
 
-  console.log(token);
-
   const cookieOptions = {
     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
     httpOnly: true

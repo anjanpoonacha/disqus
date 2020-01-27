@@ -2,13 +2,13 @@ import axios from 'axios';
 import { showAlert } from './alert';
 
 export const addComment = async (document, text, commentType, Comment) => {
-  let res;
   const model = commentType;
   const slug = document.location.pathname.split('/')[1];
 
   try {
-    res = await axios({
-      url: 'http://127.0.0.1:3000/posts/',
+    const res = await axios({
+      // url: 'http://127.0.0.1:3000/posts/',
+      url: '/posts/',
       method: 'POST',
       data: { text, model, slug, Comment }
     });
@@ -97,7 +97,8 @@ export const addComment = async (document, text, commentType, Comment) => {
 export const likeComment = async (commentType, commentId) => {
   try {
     const res = await axios({
-      url: 'http://127.0.0.1:3000/posts/likeComment',
+      // url: 'http://127.0.0.1:3000/posts/likeComment',
+      url: '/posts/likeComment',
       method: 'PATCH',
       data: {
         commentType,
@@ -112,7 +113,8 @@ export const likeComment = async (commentType, commentId) => {
 export const dislikeComment = async (commentType, commentId) => {
   try {
     const res = await axios({
-      url: 'http://127.0.0.1:3000/posts/dislikeComment',
+      // url: 'http://127.0.0.1:3000/posts/dislikeComment',
+      url: '/posts/dislikeComment',
       method: 'PATCH',
       data: {
         commentType,

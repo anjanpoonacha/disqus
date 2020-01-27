@@ -7,7 +7,6 @@ const AppError = require('../utils/appError');
 
 exports.getOverview = catchAsync(async (req, res, next) => {
   const posts = await Post.find().sort({ postedAt: -1 });
-  console.log(posts.comments);
   res.status(200).render('overview', {
     title: 'All Posts',
     posts
@@ -45,8 +44,6 @@ const createCommentOnModel = async (model, req, res) => {
   req.body.Post = post._id || null;
   req.body.postedBy = req.user.username;
 
-  console.log(req.user.username);
-
   const comment = await model.create(req.body);
 
   res.status(200).json({
@@ -77,8 +74,6 @@ exports.likeComment = catchAsync(async (req, res, next) => {
       : commentType === 'comment'
       ? Comment
       : null;
-
-  console.log(commentModel);
 
   if (!commentModel) {
     return next(
@@ -122,8 +117,6 @@ exports.dislikeComment = catchAsync(async (req, res, next) => {
       ? Comment
       : null;
 
-  console.log(commentModel, commentId, commentType);
-
   if (!commentModel) {
     return next(
       new AppError('Something went wrong! Check Model in Like or Dislike.', 500)
@@ -152,8 +145,6 @@ exports.dislikeComment = catchAsync(async (req, res, next) => {
   comment.dislikes++;
   comment.disLikedBy.push(username);
   updatedComment = await comment.save({ validateBeforeSave: false });
-
-  console.log(username);
 
   res
     .status(200)

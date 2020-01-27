@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
-
+const compression = require('compression');
 const viewRouter = require('./routes/viewsRouter');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controller/errorController');
@@ -27,6 +27,8 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+
+app.use(compression());
 
 // MOUNTING THE ROUTER
 app.use('/', viewRouter);

@@ -51,8 +51,6 @@ document.addEventListener('click', async e => {
     `${commentId.split('-')[0]}-dislike-${commentId.split('-')[2]}`
   );
 
-  // console.log(JSON.parse(likeBtn.getAttribute(apAttr)));
-
   if (e.srcElement === likeBtn) {
     if (JSON.parse(likeBtn.getAttribute(apAttr))) {
       document.querySelector(
