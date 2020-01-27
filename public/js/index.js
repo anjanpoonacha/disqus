@@ -42,6 +42,10 @@ document.addEventListener('submit', e => {
   }
 });
 
+const setAriaAttribute = (btn, boolean) => {
+  btn.setAttribute('aria-pressed', boolean);
+};
+
 document.addEventListener('click', async e => {
   let apAttr = 'aria-pressed';
   const commentId = e.srcElement.id;
@@ -54,47 +58,38 @@ document.addEventListener('click', async e => {
   );
 
   if (e.srcElement === likeBtn) {
-    if (JSON.parse(likeBtn.getAttribute(apAttr))) {
-      document.querySelector(
-        `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
-      ).textContent++;
-
+    try {
+      await likeComment(commentId.split('-')[0], commentId.split('-')[2]);
       if (JSON.parse(dislikeBtn.getAttribute(apAttr))) {
-        dislikeBtn.setAttribute(apAttr, false);
-        //
         document.querySelector(
           `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
         ).textContent--;
+        setAriaAttribute(dislikeBtn, false);
       }
-    } else {
-      likeBtn.setAttribute(apAttr, true);
+      setAriaAttribute(likeBtn, true);
+      document.querySelector(
+        `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
+      ).textContent++;
+    } catch (err) {
+      showAlert('error', err.response.data.message);
     }
-    // (comment || subcomment, commentId)
-    return await likeComment(commentId.split('-')[0], commentId.split('-')[2]);
   }
 
   if (e.srcElement === dislikeBtn) {
-    if (JSON.parse(dislikeBtn.getAttribute(apAttr))) {
-      // ASSIGNING TO A VARIABLE LEADS TO  UNDESIRABLE RESULT DUE TO CACHE
-      document.querySelector(
-        `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
-      ).textContent++;
-
+    try {
+      await dislikeComment(commentId.split('-')[0], commentId.split('-')[2]);
       if (JSON.parse(likeBtn.getAttribute(apAttr))) {
-        likeBtn.setAttribute(apAttr, false);
-
         document.querySelector(
           `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
         ).textContent--;
+        setAriaAttribute(likeBtn, false);
       }
-      //
-    } else {
-      dislikeBtn.setAttribute(apAttr, true);
+      setAriaAttribute(dislikeBtn, true);
+      document.querySelector(
+        `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
+      ).textContent++;
+    } catch (err) {
+      showAlert('error', err.response.data.message);
     }
-    // (comment || subcomment, commentId)
-    return await dislikeComment(
-      commentId.split('-')[0],
-      commentId.split('-')[2]
-    );
   }
 });
