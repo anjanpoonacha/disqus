@@ -5,7 +5,7 @@ block content
     .post-container
       - const postedAt = `${post.postedAt}`.split(' ').splice(1,4).join(' ')
       .post__details.pd-tp-sm=`${post.postedBy} | ${postedAt}.`
-      h2.heading-secondary=post.title
+      h2.heading-secondary.mg-bt-xs=post.title
       p.post__description=post.description
 
     .comment

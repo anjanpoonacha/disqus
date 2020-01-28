@@ -33,7 +33,8 @@ body {
 
 .heading-secondary {
   font-size: 2.5rem;
-  font-weight: 600; }
+  font-weight: 600;
+  line-height: 1.2; }
 
 .heading-tertiary {
   font-size: 2rem;
@@ -61,6 +62,9 @@ body {
     background-color: #444; }
   .btn--blue {
     background-color: #24a0ed; }
+
+.mg-bt-xs {
+  margin-bottom: 1rem !important; }
 
 .mg-bt-sm {
   margin-bottom: 2rem !important; }
@@ -121,33 +125,37 @@ body {
   grid-column: full-start / full-end;
   min-height: 90vh;
   padding: 5rem; }
-  @supports (grid-template-columns: subgrid) {
-    .posts-container {
-      display: grid;
-      grid-template-columns: subgrid;
-      padding: 5rem 0;
-      grid-auto-rows: min-content; } }
 
-.post {
+.post__title {
+  border-bottom: 1px solid transparent;
+  display: inline-block; }
+
+.post__details {
+  font-size: 1.4rem; }
+
+.post__link, .post__link:link, .post__link:visited {
   background-color: #fdfdfd;
   padding: 1.5rem 3rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
-  transition: all 0.2s; }
-  @supports (grid-template-columns: subgrid) {
-    .post {
-      grid-column: center-start / center-end; } }
-  .post:hover, .post:active {
-    transform: scale(1.01) translateY(-2px);
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); }
-  .post__link, .post__link:link, .post__link:visited {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer; }
-  .post__description {
-    margin-left: 2rem; }
-  .post:not(:last-child) {
-    margin-bottom: 2rem; }
+  transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  width: 100%; }
+
+.post__link:hover, .post__link:active {
+  transform: scale(1.01) translateY(-2px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); }
+  .post__link:hover .post__title, .post__link:active .post__title {
+    border-bottom: 1px solid currentColor; }
+
+.post__description {
+  margin-left: 2rem; }
+
+.post__link:not(:last-child) {
+  margin-bottom: 2rem; }
 
 .post-overview {
   grid-column: full-start / full-end;

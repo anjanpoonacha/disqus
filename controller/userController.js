@@ -68,7 +68,7 @@ exports.isLoggedIn = async (req, res, next) => {
     const currentUser = await User.findById(userId);
     if (!currentUser) {
       return next(
-        new AppError(`User with this id doesn't exist. Please login!`, 401)
+        new AppError(`Something went wrong. Please login again!`, 401)
       );
     }
 

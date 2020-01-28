@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,600,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,600,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
   <title>disqus</title>
 </head>
 
@@ -27,158 +27,202 @@
         <span> Name</span>
       </a> -->
     </nav>
-</header>
-<main class="posts-container">
-
-  <div class="post">
-    <div class="post__details">2019 | Author</div>
-    <a href="#" class="post__link heading-secondary">This is a title</a>
-    <p class="post__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi distinctio beatae animi
-      veniam, quo nostrum laborum, voluptatibus eius sit repudiandae officiis nobis assumenda aut itaque dolor sunt
-      quibusdam rem delectus.</p>
-  </div>
-  <div class="post">
-    <div class="post__details">2019 | Author</div>
-    <a href="#" class="post__link heading-secondary">This is a title</a>
-  </div>
-  <div class="post">
-    <div class="post__details">2019 | Author</div>
-    <a href="#" class="post__link heading-secondary">This is a title</a>
-  </div>
-
-</main>
-
-<div class="post-overview">
-  <div class="post-container">
-    <div class="post__details">Author | 2019</div>
-    <h2 class="heading-secondary">This is a title</h2>
-    <p class="post__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto pariatur aut quasi
-      maxime magnam atque quae sequi voluptatem, quam et earum magni eligendi autem quisquam vero repellat blanditiis
-      ipsa facere.</p>
-  </div>
-
-  <div class="comment">
-    <h3 class="comment__title heading-tertiary mg-bt-sm">Comments</h3>
-
-    <form class="comment-form mg-bt-sm">
-      <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id="" rows="5"
-        style="resize: none; width: 100%; "></textarea>
-      <button class="btn btn--grey btn--reply" type="submit">Add comment</button>
-    </form>
-
-    <!-- ------------------------------------ -->
-
-
-    <div class="comment__info">
-
-      <div class="comment__wrapper">
-        <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img">
-        <div class="comment__user-name">Matt</div>
-        <div class="comment__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, nostrum?</div>
+  </header>
+  <main class="posts-container">
+    <a class="post" href="#">
+      <div class="">
+        <div class="post__details">2019 | Author</div>
+        <span href="#" class="post__link heading-secondary">This is a title</span>
+        <p class="post__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          distinctio beatae animi veniam, quo nostrum laborum, voluptatibus
+          eius sit repudiandae officiis nobis assumenda aut itaque dolor sunt
+          quibusdam rem delectus.
+        </p>
       </div>
-      <!-- -------------cta ----------->
-      <div class="comment__cta mg-bt-sm">
-        <!-- <span role="checkbox" aria-checked="false" aria-labelledby="reply-checkbox--1"></span>
+    </a>
+    <a class="post" href="#">
+      <div class="">
+        <div class="post__details">2019 | Author</div>
+        <span href="#" class="post__link heading-secondary">This is a title</span>
+        <p class="post__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          distinctio beatae animi veniam, quo nostrum laborum, voluptatibus
+          eius sit repudiandae officiis nobis assumenda aut itaque dolor sunt
+          quibusdam rem delectus.
+        </p>
+      </div>
+    </a>
+  </main>
+
+  <div class="post-overview">
+    <div class="post-container">
+      <div class="post__details">Author | 2019</div>
+      <h2 class="heading-secondary">This is a title</h2>
+      <p class="post__description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
+        pariatur aut quasi maxime magnam atque quae sequi voluptatem, quam et
+        earum magni eligendi autem quisquam vero repellat blanditiis ipsa
+        facere.
+      </p>
+    </div>
+
+    <div class="comment">
+      <h3 class="comment__title heading-tertiary mg-bt-sm">Comments</h3>
+
+      <form class="comment-form mg-bt-sm">
+        <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id="" rows="5"
+          style="resize: none; width: 100%; "></textarea>
+        <button class="btn btn--grey btn--reply" type="submit">
+          Add comment
+        </button>
+      </form>
+
+      <!-- ------------------------------------ -->
+
+      <div class="comment__info">
+        <div class="comment__wrapper">
+          <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img" />
+          <div class="comment__user-name">Matt</div>
+          <div class="comment__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+            nostrum?
+          </div>
+        </div>
+        <!-- -------------cta ----------->
+        <div class="comment__cta mg-bt-sm">
+          <!-- <span role="checkbox" aria-checked="false" aria-labelledby="reply-checkbox--1"></span>
           <label onclick="changeCheckbox()" aria-checked="false" id="reply-checkbox--1" class="btn-reply">Reply</label> -->
-        <div role="checkbox" onclick="changeCheckbox()" aria-checked="false" id="reply-checkbox--1" class="btn-reply">
-          Reply</div>
-        <div aria-pressed="false" role="button" class="btn-like">Like 20</div>
-        <div aria-pressed="false" role="button" class="btn-dislike">Dislike 6</div>
-        <!-- form -->
-        <form class="comment-form">
-          <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id=""
-            rows="5" style="resize: none; width: 100%; "></textarea>
-          <button class="btn btn--grey btn--reply" type="submit">Add comment</button>
-        </form>
-      </div>
+          <div role="checkbox" onclick="changeCheckbox()" aria-checked="false" id="reply-checkbox--1" class="btn-reply">
+            Reply
+          </div>
+          <div aria-pressed="false" role="button" class="btn-like">
+            Like 20
+          </div>
+          <div aria-pressed="false" role="button" class="btn-dislike">
+            Dislike 6
+          </div>
+          <!-- form -->
+          <form class="comment-form">
+            <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id=""
+              rows="5" style="resize: none; width: 100%; "></textarea>
+            <button class="btn btn--grey btn--reply" type="submit">
+              Add comment
+            </button>
+          </form>
+        </div>
 
-      <!-- sub comment -->
+        <!-- sub comment -->
 
-      <div class="sub-comment">
+        <div class="sub-comment">
+          <div class="comment__wrapper">
+            <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img" />
+            <div class="comment__user-name">Matt</div>
+            <div class="comment__text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum?
+            </div>
+          </div>
+          <div class="comment__cta mg-bt-sm">
+            <div aria-pressed="false" role="button" class="btn-like">
+              Like
+            </div>
+            <div aria-pressed="false" role="button" class="btn-dislike">
+              Dislike
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-comment">
+          <div class="comment__wrapper">
+            <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img" />
+            <div class="comment__user-name">Matt</div>
+            <div class="comment__text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum?
+            </div>
+          </div>
+          <div class="comment__cta mg-bt-sm">
+            <div aria-pressed="false" role="button" class="btn-like">
+              Like
+            </div>
+            <div aria-pressed="false" role="button" class="btn-dislike">
+              Dislike
+            </div>
+          </div>
+        </div>
+
+        <div class="sub-comment">
+          <div class="comment__wrapper">
+            <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img" />
+            <div class="comment__user-name">Matt</div>
+            <div class="comment__text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+              nostrum?
+            </div>
+          </div>
+          <div class="comment__cta mg-bt-sm">
+            <div aria-pressed="false" role="button" class="btn-like">
+              Like
+            </div>
+            <div aria-pressed="false" role="button" class="btn-dislike">
+              Dislike
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- -->
         <div class="comment__wrapper">
-          <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img">
+          <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img" />
           <div class="comment__user-name">Matt</div>
-          <div class="comment__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, nostrum?</div>
+          <div class="comment__text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+            nostrum?
+          </div>
         </div>
+
         <div class="comment__cta mg-bt-sm">
-          <div aria-pressed="false" role="button" class="btn-like">Like</div>
-          <div aria-pressed="false" role="button" class="btn-dislike">Dislike</div>
-        </div>
-      </div>
+          <div role="checkbox" onclick="changeCheckbox()" aria-checked="false" id="reply-checkbox--2" class="btn-reply">
+            Reply
+          </div>
+          <div aria-pressed="false" role="button" class="btn-like">
+            Like 20
+          </div>
+          <div aria-pressed="false" role="button" class="btn-dislike">
+            Dislike 6
+          </div>
 
-      <div class="sub-comment">
-        <div class="comment__wrapper">
-          <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img">
-          <div class="comment__user-name">Matt</div>
-          <div class="comment__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, nostrum?</div>
+          <form class="comment-form">
+            <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id=""
+              rows="5" style="resize: none; width: 100%; "></textarea>
+            <button class="btn btn--grey btn--reply" type="submit">
+              Add comment
+            </button>
+          </form>
         </div>
-        <div class="comment__cta mg-bt-sm">
-          <div aria-pressed="false" role="button" class="btn-like">Like</div>
-          <div aria-pressed="false" role="button" class="btn-dislike">Dislike</div>
-        </div>
-      </div>
-
-      <div class="sub-comment">
-        <div class="comment__wrapper">
-          <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img">
-          <div class="comment__user-name">Matt</div>
-          <div class="comment__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, nostrum?</div>
-        </div>
-        <div class="comment__cta mg-bt-sm">
-          <div aria-pressed="false" role="button" class="btn-like">Like</div>
-          <div aria-pressed="false" role="button" class="btn-dislike">Dislike</div>
-        </div>
-      </div>
-
-      <!-- ---------- -->
-      <div class="comment__wrapper">
-        <img src="./../public/dist/img/default.png" alt="User 1" class="comment__user-img">
-        <div class="comment__user-name">Matt</div>
-        <div class="comment__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, nostrum?</div>
-      </div>
-
-      <div class="comment__cta mg-bt-sm">
-        <div role="checkbox" onclick="changeCheckbox()" aria-checked="false" id="reply-checkbox--2" class="btn-reply">
-          Reply</div>
-        <div aria-pressed="false" role="button" class="btn-like">Like 20</div>
-        <div aria-pressed="false" role="button" class="btn-dislike">Dislike 6</div>
-
-        <form class="comment-form">
-          <textarea placeholder="Write your thoughts..." required class="comment-form__text" name="comment" id=""
-            rows="5" style="resize: none; width: 100%; "></textarea>
-          <button class="btn btn--grey btn--reply" type="submit">Add comment</button>
-        </form>
       </div>
     </div>
   </div>
 
-</div>
+  <footer class="footer">&copy; 2020 by Anjan Poonacha</footer>
+  <script>
+    const changeCheckbox = function (e) {
+      // const attr = element.attributes;
+      console.log(event.toElement.attributes[3].value);
+      const el = event.toElement;
+      const att = event.toElement.attributes[3].value;
 
-
-
-
-
-
-<footer class="footer">&copy; 2020 by Anjan Poonacha</footer>
-<script>
-
-  const changeCheckbox = function (e) {
-    // const attr = element.attributes;
-    console.log(event.toElement.attributes[3].value);
-    const el = event.toElement;
-    const att = event.toElement.attributes[3].value;
-
-    let item = document.getElementById(att);
-    switch (item.getAttribute('aria-checked')) {
-      case "true":
-        item.setAttribute('aria-checked', "false");
-        break;
-      case "false":
-        item.setAttribute('aria-checked', "true");
-        break;
-    }
-  }
-</script>
+      let item = document.getElementById(att);
+      switch (item.getAttribute('aria-checked')) {
+        case 'true':
+          item.setAttribute('aria-checked', 'false');
+          break;
+        case 'false':
+          item.setAttribute('aria-checked', 'true');
+          break;
+      }
+    };
+  </script>
 </body>
 
 </html>

@@ -3,8 +3,9 @@ extends base
 block content 
   main.posts-container
     each post in posts
-      .post
-        - let posted = `${post.postedAt}`.split(' ').splice(1,4).join(' ');
-        .post__details=`${posted} | ${post.postedBy}`
-        a.post__link.heading-secondary(href=`/${post.slug}`)= post.title
-        p.post__description=post.description
+      a.post__link(href=`/${post.slug}`)
+        .post
+          - let posted = `${post.postedAt}`.split(' ').splice(1,4).join(' ');
+          .post__details=`${posted} | ${post.postedBy}`
+          h2.post__title.heading-secondary.mg-bt.xs= post.title
+          p.post__description=post.description
