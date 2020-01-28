@@ -8583,21 +8583,20 @@ function () {
 
           case 3:
             res = _context2.sent;
-            _context2.next = 10;
-            break;
+            return _context2.abrupt("return", res.data.updatedComment);
 
-          case 6:
-            _context2.prev = 6;
+          case 7:
+            _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
             (0, _alert.showAlert)('error', _context2.t0.response.data.message);
             throw _context2.t0;
 
-          case 10:
+          case 11:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 6]]);
+    }, _callee2, null, [[0, 7]]);
   }));
 
   return function likeComment(_x5, _x6) {
@@ -8632,21 +8631,20 @@ function () {
 
           case 3:
             res = _context3.sent;
-            _context3.next = 10;
-            break;
+            return _context3.abrupt("return", res.data.updatedComment);
 
-          case 6:
-            _context3.prev = 6;
+          case 7:
+            _context3.prev = 7;
             _context3.t0 = _context3["catch"](0);
             (0, _alert.showAlert)('error', _context3.t0.response.data.message);
             throw _context3.t0;
 
-          case 10:
+          case 11:
           case "end":
             return _context3.stop();
         }
       }
-    }, _callee3, null, [[0, 6]]);
+    }, _callee3, null, [[0, 7]]);
   }));
 
   return function dislikeComment(_x7, _x8) {
@@ -8978,7 +8976,8 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(e) {
-    var apAttr, commentId, likeBtn, dislikeBtn;
+    var apAttr, commentId, likeBtn, dislikeBtn, commentData, _commentData;
+
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -8989,7 +8988,7 @@ function () {
             dislikeBtn = document.getElementById("".concat(commentId.split('-')[0], "-dislike-").concat(commentId.split('-')[2]));
 
             if (!(e.srcElement === likeBtn)) {
-              _context.next = 16;
+              _context.next = 17;
               break;
             }
 
@@ -8998,53 +8997,49 @@ function () {
             return (0, _comment.likeComment)(commentId.split('-')[0], commentId.split('-')[2]);
 
           case 8:
-            if (JSON.parse(dislikeBtn.getAttribute(apAttr))) {
-              document.querySelector(".".concat(commentId.split('-')[0], "-dislike-count-").concat(commentId.split('-')[2])).textContent--;
-              setAriaAttribute(dislikeBtn, false);
-            }
-
-            setAriaAttribute(likeBtn, true);
-            document.querySelector(".".concat(commentId.split('-')[0], "-like-count-").concat(commentId.split('-')[2])).textContent++;
-            _context.next = 16;
+            commentData = _context.sent;
+            // SAVING TO A VARIABLE LEADS TO UNDESIRABLE RESULT (BECAUSE OF CACHING, I THINK!)
+            console.log(commentData);
+            document.querySelector(".".concat(commentId.split('-')[0], "-like-count-").concat(commentId.split('-')[2])).textContent = commentData.likes;
+            document.querySelector(".".concat(commentId.split('-')[0], "-dislike-count-").concat(commentId.split('-')[2])).textContent = commentData.dislikes;
+            _context.next = 17;
             break;
 
-          case 13:
-            _context.prev = 13;
+          case 14:
+            _context.prev = 14;
             _context.t0 = _context["catch"](5);
             (0, _alert.showAlert)('error', _context.t0.response.data.message);
 
-          case 16:
+          case 17:
             if (!(e.srcElement === dislikeBtn)) {
-              _context.next = 28;
+              _context.next = 30;
               break;
             }
 
-            _context.prev = 17;
-            _context.next = 20;
+            _context.prev = 18;
+            _context.next = 21;
             return (0, _comment.dislikeComment)(commentId.split('-')[0], commentId.split('-')[2]);
 
-          case 20:
-            if (JSON.parse(likeBtn.getAttribute(apAttr))) {
-              document.querySelector(".".concat(commentId.split('-')[0], "-like-count-").concat(commentId.split('-')[2])).textContent--;
-              setAriaAttribute(likeBtn, false);
-            }
+          case 21:
+            _commentData = _context.sent;
+            console.log(_commentData); // SAVING TO A VARIABLE LEADS TO UNDESIRABLE RESULT (BECAUSE OF CACHING, I THINK!)
 
-            setAriaAttribute(dislikeBtn, true);
-            document.querySelector(".".concat(commentId.split('-')[0], "-dislike-count-").concat(commentId.split('-')[2])).textContent++;
-            _context.next = 28;
+            document.querySelector(".".concat(commentId.split('-')[0], "-like-count-").concat(commentId.split('-')[2])).textContent = _commentData.likes;
+            document.querySelector(".".concat(commentId.split('-')[0], "-dislike-count-").concat(commentId.split('-')[2])).textContent = _commentData.dislikes;
+            _context.next = 30;
             break;
 
-          case 25:
-            _context.prev = 25;
-            _context.t1 = _context["catch"](17);
+          case 27:
+            _context.prev = 27;
+            _context.t1 = _context["catch"](18);
             (0, _alert.showAlert)('error', _context.t1.response.data.message);
 
-          case 28:
+          case 30:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[5, 13], [17, 25]]);
+    }, _callee, null, [[5, 14], [18, 27]]);
   }));
 
   return function (_x) {
@@ -9079,7 +9074,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33117" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38171" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

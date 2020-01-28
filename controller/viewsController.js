@@ -104,7 +104,7 @@ exports.likeComment = catchAsync(async (req, res, next) => {
 
   res
     .status(200)
-    .json({ status: 'SUCCESS', message: 'Liked!', data: { updatedComment } });
+    .json({ status: 'SUCCESS', message: 'Liked!', updatedComment });
 });
 
 exports.dislikeComment = catchAsync(async (req, res, next) => {
@@ -148,7 +148,7 @@ exports.dislikeComment = catchAsync(async (req, res, next) => {
 
   res
     .status(200)
-    .json({ status: 'SUCCESS', message: 'Liked!', data: { updatedComment } });
+    .json({ status: 'SUCCESS', message: 'Disiked!', updatedComment });
 });
 
 // testing

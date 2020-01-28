@@ -105,6 +105,7 @@ export const likeComment = async (commentType, commentId) => {
         commentId
       }
     });
+    return res.data.updatedComment;
   } catch (err) {
     showAlert('error', err.response.data.message);
     throw err;
@@ -122,6 +123,7 @@ export const dislikeComment = async (commentType, commentId) => {
         commentId
       }
     });
+    return res.data.updatedComment;
   } catch (err) {
     showAlert('error', err.response.data.message);
     throw err;

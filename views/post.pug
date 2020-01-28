@@ -25,11 +25,11 @@ block content
 
           .comment__cta.mg-bt-sm(class=`comment__cta--direct-${comment._id}`)
             .btn-reply(id=`reply-checkbox--${comment._id}` role='checkbox' onclick='changeCheckbox()' aria-checked='false') Reply
-            .btn-like(aria-pressed='false' aria-labelledby=`like-${comment._id}` onclick='changeButtons()' role='button' id=`comment-like-${comment._id}`)|Like 
+            .btn-like(aria-pressed='false' aria-labelledby=`like-${comment._id}` role='button' id=`comment-like-${comment._id}`)|Like 
               |
               span.like-count(class=`comment-like-count-${comment._id}`)=`${comment.likes}`
 
-            .btn-dislike(aria-pressed='false' onclick='changeButtons()' aria-labellby=`dislike-${comment._id}` role='button' id=`comment-dislike-${comment._id}`) Dislike
+            .btn-dislike(aria-pressed='false' aria-labellby=`dislike-${comment._id}` role='button' id=`comment-dislike-${comment._id}`) Dislike
               | 
               span.dislike-count(class=`comment-dislike-count-${comment._id}`)= `${comment.dislikes}`
             
@@ -45,9 +45,9 @@ block content
                 .comment__text
                   p=subcomment.text
               .comment__cta.mg-bt-sm(class=`comment__cta--sub-${subcomment._id}`)
-                .btn-like(aria-pressed='false' aria-labellby=`like-${subcomment._id}` onclick='changeButtons()' role='button' id=`subcomment-like-${subcomment._id}`) Like
+                .btn-like(aria-pressed='false' aria-labellby=`like-${subcomment._id}` role='button' id=`subcomment-like-${subcomment._id}`) Like
                   | 
                   span.like-count(class=`subcomment-like-count-${subcomment._id}`)= `${subcomment.likes}`
-                .btn-dislike(aria-pressed='false' aria-labellby=`dislike-${subcomment._id}` onclick='changeButtons()' role='button' id=`subcomment-dislike-${subcomment._id}`) Dislike
+                .btn-dislike(aria-pressed='false' aria-labellby=`dislike-${subcomment._id}` role='button' id=`subcomment-dislike-${subcomment._id}`) Dislike
                   | 
                   span.dislike-count(class=`subcomment-dislike-count-${subcomment._id}`)= `${subcomment.dislikes}`

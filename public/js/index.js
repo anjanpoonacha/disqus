@@ -59,35 +59,40 @@ document.addEventListener('click', async e => {
 
   if (e.srcElement === likeBtn) {
     try {
-      await likeComment(commentId.split('-')[0], commentId.split('-')[2]);
-      if (JSON.parse(dislikeBtn.getAttribute(apAttr))) {
-        document.querySelector(
-          `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
-        ).textContent--;
-        setAriaAttribute(dislikeBtn, false);
-      }
-      setAriaAttribute(likeBtn, true);
+      const commentData = await likeComment(
+        commentId.split('-')[0],
+        commentId.split('-')[2]
+      );
+
+      // SAVING TO A VARIABLE LEADS TO UNDESIRABLE RESULT (BECAUSE OF CACHING, I THINK!)
+      console.log(commentData);
       document.querySelector(
         `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
-      ).textContent++;
+      ).textContent = commentData.likes;
+
+      document.querySelector(
+        `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
+      ).textContent = commentData.dislikes;
     } catch (err) {
       showAlert('error', err.response.data.message);
     }
   }
-
   if (e.srcElement === dislikeBtn) {
     try {
-      await dislikeComment(commentId.split('-')[0], commentId.split('-')[2]);
-      if (JSON.parse(likeBtn.getAttribute(apAttr))) {
-        document.querySelector(
-          `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
-        ).textContent--;
-        setAriaAttribute(likeBtn, false);
-      }
-      setAriaAttribute(dislikeBtn, true);
+      const commentData = await dislikeComment(
+        commentId.split('-')[0],
+        commentId.split('-')[2]
+      );
+      console.log(commentData);
+
+      // SAVING TO A VARIABLE LEADS TO UNDESIRABLE RESULT (BECAUSE OF CACHING, I THINK!)
+      document.querySelector(
+        `.${commentId.split('-')[0]}-like-count-${commentId.split('-')[2]}`
+      ).textContent = commentData.likes;
+
       document.querySelector(
         `.${commentId.split('-')[0]}-dislike-count-${commentId.split('-')[2]}`
-      ).textContent++;
+      ).textContent = commentData.dislikes;
     } catch (err) {
       showAlert('error', err.response.data.message);
     }
