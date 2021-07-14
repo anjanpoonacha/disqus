@@ -3,6 +3,11 @@
 ## What is this about?
 Disqus is a forum type application like Reddit. A logged-in user can Comment on a Post or Reply, Like or Dislike a Comment.
 
+## Open in VSCode
+[![Open in VSCode]
+(https://open.vscode.dev/badges/open-in-vscode.svg)]
+(https://open.vscode.dev/anjanpoonacha/disqus)
+
 ## Where is the Web application?
 https://disqus-like-reddit.herokuapp.com
 
