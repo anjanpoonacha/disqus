@@ -21,7 +21,7 @@
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",
     "pug": "^3.0.1",
